@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desktop Plant</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="plant-app">
+      <div class="plant-stage" id="plantStage" aria-label="Mimosa plant">
+        <svg viewBox="0 0 200 280" class="plant-svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="stem" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#68b070" />
+              <stop offset="100%" stop-color="#2f7d3f" />
+            </linearGradient>
+            <linearGradient id="leaf" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#7bd68f" />
+              <stop offset="100%" stop-color="#3b8c53" />
+            </linearGradient>
+          </defs>
+
+          <g class="plant-growth" id="plantGrowth">
+            <rect x="96" y="80" width="8" height="120" rx="4" fill="url(#stem)" />
+            <circle cx="100" cy="70" r="10" fill="#4b9c5b" />
+
+            <g class="leaf-open" id="leafOpen">
+              <ellipse cx="60" cy="120" rx="34" ry="14" fill="url(#leaf)" transform="rotate(-15 60 120)" />
+              <ellipse cx="140" cy="120" rx="34" ry="14" fill="url(#leaf)" transform="rotate(15 140 120)" />
+              <ellipse cx="50" cy="160" rx="36" ry="14" fill="url(#leaf)" transform="rotate(-20 50 160)" />
+              <ellipse cx="150" cy="160" rx="36" ry="14" fill="url(#leaf)" transform="rotate(20 150 160)" />
+            </g>
+
+            <g class="leaf-closed" id="leafClosed">
+              <ellipse cx="80" cy="130" rx="16" ry="36" fill="url(#leaf)" transform="rotate(-10 80 130)" />
+              <ellipse cx="120" cy="130" rx="16" ry="36" fill="url(#leaf)" transform="rotate(10 120 130)" />
+              <ellipse cx="80" cy="170" rx="16" ry="36" fill="url(#leaf)" transform="rotate(-10 80 170)" />
+              <ellipse cx="120" cy="170" rx="16" ry="36" fill="url(#leaf)" transform="rotate(10 120 170)" />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="status" id="statusText">Loading...</div>
+
+      <div class="controls">
+        <button id="waterBtn" class="btn">Water</button>
+        <button id="fertilizeBtn" class="btn">Fertilize</button>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
