@@ -19,14 +19,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 8px 10px 6px;
   -webkit-app-region: drag;
 }
 
 .plant-stage {
   width: 100%;
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +36,7 @@ body {
 
 .plant-svg {
   width: 220px;
-  height: 260px;
+  height: 190px;
   filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.35));
 }
 
@@ -49,17 +50,17 @@ body {
   transition: opacity 0.2s ease;
 }
 
-.plant-stage.hovered .leaf-open {
+.plant-leaves.hovered .leaf-open {
   opacity: 0;
 }
 
-.plant-stage.hovered .leaf-closed {
+.plant-leaves.hovered .leaf-closed {
   opacity: 1;
 }
 
 .status {
   font-size: 12px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   padding: 6px 10px;
   background: rgba(20, 40, 28, 0.5);
   border-radius: 12px;
@@ -69,6 +70,7 @@ body {
 .controls {
   display: flex;
   gap: 8px;
+  margin-top: -12px;
   -webkit-app-region: no-drag;
 }
 

@@ -1,4 +1,5 @@
 const plantStage = document.getElementById('plantStage');
+const plantLeaves = document.getElementById('plantLeaves');
 const plantGrowth = document.getElementById('plantGrowth');
 const statusText = document.getElementById('statusText');
 const waterBtn = document.getElementById('waterBtn');
@@ -31,13 +32,15 @@ async function refresh() {
   statusText.textContent = formatStatus(state);
 }
 
-plantStage.addEventListener('mouseenter', () => {
-  plantStage.classList.add('hovered');
-});
+if (plantLeaves) {
+  plantLeaves.addEventListener('mouseenter', () => {
+    plantLeaves.classList.add('hovered');
+  });
 
-plantStage.addEventListener('mouseleave', () => {
-  plantStage.classList.remove('hovered');
-});
+  plantLeaves.addEventListener('mouseleave', () => {
+    plantLeaves.classList.remove('hovered');
+  });
+}
 
 waterBtn.addEventListener('click', async () => {
   const state = await window.plantApi.water();

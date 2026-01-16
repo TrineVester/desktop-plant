@@ -48,40 +48,46 @@
             </clipPath>
           </defs>
 
-          <!-- 1) POT BODY (back) -->
-          <g class="plant-pot" aria-hidden="true">
-            <ellipse cx="100" cy="250" rx="56" ry="11" fill="#20140e" opacity="0.35" />
-            <path d="M54 196h92l-10 64H64z" fill="url(#potBody)" />
-            <ellipse cx="88" cy="224" rx="32" ry="28" fill="url(#potHighlight)" />
-          </g>
-
-          <!-- 2) STEM (behind rim/soil), clipped so it disappears into soil -->
-          <g id="plantStem" transform="translate(0 6)" clip-path="url(#stemClip)">
-            <!-- extend down into the pot so clip makes it look planted -->
-            <rect x="96" y="70" width="8" height="170" rx="4" fill="url(#stem)" />
-          </g>
-
-          <!-- 3) RIM + SOIL (covers stem base) -->
-          <g class="plant-pot-top" aria-hidden="true">
-            <path d="M48 186h104l-6 20H54z" fill="url(#potRim)" />
-          </g>
-
-          <!-- 4) LEAVES LAST (always in front of pot top) -->
-          <g id="plantLeaves" transform="translate(0 6)">
-            <circle cx="100" cy="70" r="10" fill="#4b9c5b" />
-
-            <g class="leaf-open" id="leafOpen">
-              <ellipse cx="60" cy="120" rx="34" ry="14" fill="url(#leaf)" transform="rotate(-15 60 120)" />
-              <ellipse cx="140" cy="120" rx="34" ry="14" fill="url(#leaf)" transform="rotate(15 140 120)" />
-              <ellipse cx="50" cy="160" rx="36" ry="14" fill="url(#leaf)" transform="rotate(-20 50 160)" />
-              <ellipse cx="150" cy="160" rx="36" ry="14" fill="url(#leaf)" transform="rotate(20 150 160)" />
+          <g id="plantScale" transform="translate(18 18) scale(0.82)">
+            <!-- 1) POT BODY (back) -->
+            <g class="plant-pot" aria-hidden="true">
+              <ellipse cx="100" cy="250" rx="56" ry="11" fill="#20140e" opacity="0.35" />
+              <path d="M54 196h92l-10 64H64z" fill="url(#potBody)" />
+              <ellipse cx="88" cy="224" rx="32" ry="28" fill="url(#potHighlight)" />
             </g>
 
-            <g class="leaf-closed" id="leafClosed">
-              <ellipse cx="80" cy="130" rx="16" ry="36" fill="url(#leaf)" transform="rotate(-10 80 130)" />
-              <ellipse cx="120" cy="130" rx="16" ry="36" fill="url(#leaf)" transform="rotate(10 120 130)" />
-              <ellipse cx="80" cy="170" rx="16" ry="36" fill="url(#leaf)" transform="rotate(-10 80 170)" />
-              <ellipse cx="120" cy="170" rx="16" ry="36" fill="url(#leaf)" transform="rotate(10 120 170)" />
+            <!-- 2) STEM (behind rim/soil), clipped so it disappears into soil -->
+            <g id="plantStem" transform="translate(0 6)" clip-path="url(#stemClip)">
+              <!-- extend down into the pot so clip makes it look planted -->
+              <rect x="96" y="70" width="8" height="170" rx="4" fill="url(#stem)" />
+            </g>
+
+            <!-- 3) RIM + SOIL (covers stem base) -->
+            <g class="plant-pot-top" aria-hidden="true">
+              <path d="M48 186h104l-6 20H54z" fill="url(#potRim)" />
+            </g>
+
+            <!-- 4) LEAVES LAST (always in front of pot top) -->
+          <g id="plantLeaves" class="plant-leaves" transform="translate(0 6)">
+              <circle cx="100" cy="70" r="7.5" fill="#4b9c5b" />
+
+              <g class="leaf-open" id="leafOpen">
+                <ellipse cx="78" cy="92" rx="22" ry="8.5" fill="url(#leaf)" transform="rotate(-14 78 92)" />
+                <ellipse cx="122" cy="92" rx="22" ry="8.5" fill="url(#leaf)" transform="rotate(14 122 92)" />
+                <ellipse cx="74" cy="118" rx="23" ry="9" fill="url(#leaf)" transform="rotate(-18 74 118)" />
+                <ellipse cx="126" cy="118" rx="23" ry="9" fill="url(#leaf)" transform="rotate(18 126 118)" />
+                <ellipse cx="80" cy="142" rx="21" ry="8.5" fill="url(#leaf)" transform="rotate(-12 80 142)" />
+                <ellipse cx="120" cy="142" rx="21" ry="8.5" fill="url(#leaf)" transform="rotate(12 120 142)" />
+              </g>
+
+              <g class="leaf-closed" id="leafClosed">
+                <ellipse cx="90" cy="102" rx="10" ry="24" fill="url(#leaf)" transform="rotate(-8 90 102)" />
+                <ellipse cx="110" cy="102" rx="10" ry="24" fill="url(#leaf)" transform="rotate(8 110 102)" />
+                <ellipse cx="88" cy="128" rx="10" ry="24" fill="url(#leaf)" transform="rotate(-8 88 128)" />
+                <ellipse cx="112" cy="128" rx="10" ry="24" fill="url(#leaf)" transform="rotate(8 112 128)" />
+                <ellipse cx="92" cy="152" rx="9" ry="22" fill="url(#leaf)" transform="rotate(-6 92 152)" />
+                <ellipse cx="108" cy="152" rx="9" ry="22" fill="url(#leaf)" transform="rotate(6 108 152)" />
+              </g>
             </g>
           </g>
         </svg>
