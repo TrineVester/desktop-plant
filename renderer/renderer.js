@@ -1,9 +1,10 @@
 const plantStage = document.getElementById('plantStage');
 const plantLeaves = document.getElementById('plantLeaves');
 const plantGrowth = document.getElementById('plantGrowth');
-const statusText = document.getElementById('statusText');
 const waterBtn = document.getElementById('waterBtn');
 const fertilizeBtn = document.getElementById('fertilizeBtn');
+let dragging = false;
+let dragStart = { x: 0, y: 0, winX: 0, winY: 0 };
 
 function formatStatus(state) {
   const needs = [];
@@ -29,7 +30,6 @@ function applyGrowth(stage) {
 async function refresh() {
   const state = await window.plantApi.getState();
   applyGrowth(state.growthStage);
-  statusText.textContent = formatStatus(state);
 }
 
 if (plantLeaves) {
@@ -42,16 +42,37 @@ if (plantLeaves) {
   });
 }
 
+plantStage.addEventListener('mousedown', (event) => {
+  dragging = true;
+  dragStart = {
+    x: event.screenX,
+    y: event.screenY,
+    winX: window.screenX,
+    winY: window.screenY
+  };
+});
+
+window.addEventListener('mouseup', () => {
+  dragging = false;
+});
+
+window.addEventListener('mousemove', (event) => {
+  if (!dragging) {
+    return;
+  }
+  const nextX = dragStart.winX + (event.screenX - dragStart.x);
+  const nextY = dragStart.winY + (event.screenY - dragStart.y);
+  window.plantApi.moveWindow(nextX, nextY);
+});
+
 waterBtn.addEventListener('click', async () => {
   const state = await window.plantApi.water();
   applyGrowth(state.growthStage);
-  statusText.textContent = formatStatus(state);
 });
 
 fertilizeBtn.addEventListener('click', async () => {
   const state = await window.plantApi.fertilize();
   applyGrowth(state.growthStage);
-  statusText.textContent = formatStatus(state);
 });
 
 refresh();
